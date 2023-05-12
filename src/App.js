@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 
 function App() {
   return (
-    <h1>Hello World!</h1>
+    <div className="App">
+      <h1>React App</h1>
+    </div>
   );
 }
 
