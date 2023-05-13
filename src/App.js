@@ -1,26 +1,44 @@
-import React, {useState, useEffect} from 'react';
-import './App.css';
+import React, { useState } from 'react';
+import StripeCheckout from 'react-stripe-checkout';
 
 function App() {
+  const [product] = useState({
+    name: 'Photo',
+    price: 100,
+  });
 
-  const [backendData, setBackendData] = useState([{}]);
+  const handleToken = async (token, addresses) => {
+    const response = await fetch('/api/charge', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        amount: product.price * 100,
+        source: token.id,
+        receipt_email: addresses.email,
+      }),
+    });
 
-  useEffect(() => {
-    fetch('/portraits').then(
-      response => response.json()
-    ).then(
-      data => setBackendData(data));
-  }, []);
+    const data = await response.json();
+    if (data.message === 'Payment successful') {
+      alert('Payment successful!');
+    } else {
+      alert('Payment failed!');
+    }
+  };
 
   return (
-    <div>
-      {(typeof backendData.users === 'undefined') ? (
-        <p>Loading...</p>
-      ) : (
-        backendData.users.map((user, i) => (
-          <p key={i}>{user}</p>
-        ))
-      )}
+    <div className="App">
+      <h1>{product.name}</h1>
+      <StripeCheckout
+        stripeKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}
+        token={handleToken}
+        amount={product.price * 100}
+        name={product.name}
+        billingAddress
+        shippingAddress
+      />
     </div>
   );
 }
