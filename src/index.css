@@ -1,1 +1,23 @@
+@import url('https://fonts.cdnfonts.com/css/apercu');
 
+:root {
+    --font-family: 'Apercu', noto-sans, sans-serif;
+
+    --color-bg: #fdc4b6ff;
+    --color-footer: #e59572ff;
+
+    --color-primary: #fdc4b6ff;
+    --color-secondary: #2694abff;
+
+    --color-primary-accent: #ea7070ff;
+    --color-secondary-accent: #4dbedfff;
+
+    --color-primary-lettering: #e59572ff;
+    --color-secondary-lettering: #2779a7;
+}
+
+* {
+    box-sizing: border-box;
+    max-width: 100%;
+    font-weight: bold;
+}

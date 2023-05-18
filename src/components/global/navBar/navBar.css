@@ -1,0 +1,100 @@
+.navBar__container {
+    background: var(--color-bg);
+    position: sticky;
+    top: 0px;
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-start;
+    vertical-align: center;
+    z-index: 99;
+    overflow: hidden;
+}
+
+.navBar__container div:nth-child(2) {
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 25px;
+}
+
+.logo {
+    max-width: 150px;
+    cursor: pointer;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+}
+
+.menu-input-toggle {
+    display: flex;
+    min-height: 150px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu-input-toggle:hover span,
+.menu-input-toggle:hover span::before,
+.menu-input-toggle:hover span::after {
+    background: var(--color-primary-lettering);
+}
+
+.menu-input-toggle span,
+.menu-input-toggle span::before,
+.menu-input-toggle span::after {
+  display: block;
+  background: var(--color-primary-accent);
+  height: 4px;
+  width: 40px;
+  position: relative;
+  transition: .5s ease-in-out;
+  border-radius: 2px;
+}
+
+.menu-input-toggle span::before,
+.menu-input-toggle span::after {
+  content: '';
+  position: absolute;
+}
+
+.menu-input-toggle span::before {
+  bottom: 10px;
+}
+  
+.menu-input-toggle span::after {
+  top: 10px;
+}
+
+.menu-input {
+    display: none;
+}
+
+.menu-container {
+    display: none;
+}
+
+.hamburger-menu {
+    display: block;
+    min-height: 100px;
+    font-family: var(--font-family-2);
+    background: var(--color-bg);
+    font-size: 22px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    flex-grow: 1;
+}
+
+.menu-container ul {
+    list-style: none;
+    text-align: right;
+}
+
+.menu-container li {
+    margin-bottom: 1rem;
+}
+
+.menu-input:checked ~ nav {
+    display: block;
+}
