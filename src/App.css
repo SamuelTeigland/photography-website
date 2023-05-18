@@ -11,6 +11,10 @@ body {
 a {
     text-decoration: none;
     font-family: var(--font-family);
-    font-size: 2vw;
     color: var(--color-primary-accent);
+    transition: .5s;
+}
+
+a:hover {
+    color: var(--color-secondary-accent);
 }

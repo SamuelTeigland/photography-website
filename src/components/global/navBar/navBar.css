@@ -80,9 +80,6 @@
     min-height: 100px;
     font-family: var(--font-family-2);
     background: var(--color-bg);
-    font-size: 22px;
-    letter-spacing: 1px;
-    font-weight: bold;
     flex-grow: 1;
 }
 
@@ -92,7 +89,8 @@
 }
 
 .menu-container li {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
 }
 
 .menu-input:checked ~ nav {
